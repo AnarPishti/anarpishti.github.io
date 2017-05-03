@@ -1,0 +1,946 @@
+@keyframes live_left {
+    0%   {top: 7px; box-shadow: 4px -7px 0 white;}
+    25%   {top: 0px; box-shadow: 4px 5px 0 white;}
+    50%   {top: 8px; box-shadow: 4px -7px 0 white;}
+    75%   {top: 0; box-shadow: 4px 0 0 white;}
+    100%   {top: 7px; box-shadow: 4px -7px 0 white;}
+}
+
+@keyframes live_right {
+    0%   {top: 4px; box-shadow: 4px 4px 0 white;}
+    25%   {top: 5px; box-shadow: 4px -5px 0 white;}
+    50%   {top: 4px; box-shadow: 4px 1px 0 white;}
+    75%   {top: 6px; box-shadow: 4px -4px 0 white;}
+    100%   {top: 4px; box-shadow: 4px 4px 0 white;}
+}
+
+@keyframes live_yellow_left {
+    0%   {top: 7px; box-shadow: 4px -7px 0 #f3ca3d;}
+    25%   {top: 0px; box-shadow: 4px 5px 0 #f3ca3d;}
+    50%   {top: 8px; box-shadow: 4px -7px 0 #f3ca3d;}
+    75%   {top: 0; box-shadow: 4px 0 0 #f3ca3d;}
+    100%   {top: 7px; box-shadow: 4px -7px 0 #f3ca3d;}
+}
+
+@keyframes live_yellow_right {
+    0%   {top: 4px; box-shadow: 4px 4px 0 #f3ca3d;}
+    25%   {top: 5px; box-shadow: 4px -5px 0 #f3ca3d;}
+    50%   {top: 4px; box-shadow: 4px 1px 0 #f3ca3d;}
+    75%   {top: 6px; box-shadow: 4px -4px 0 #f3ca3d;}
+    100%   {top: 4px; box-shadow: 4px 4px 0 #f3ca3d;}
+}
+
+@keyframes video_thumbnail {
+    0%, 25%   {opacity: 0}
+    100%   {opacity: 1}
+}
+
+@keyframes heart_icon {
+    0%, 30%   {transform: scale(0);}
+    50% {transform: scale(1.2);}
+    100%   {transform: scale(1);}
+}
+
+@keyframes heart_circle_main {
+    0% {
+        width: 22px;
+        height: 22px;
+        left: -4px;
+        top: -4px;
+        border: 11px solid #e24f95;
+    }
+    25% {
+        width: 30px;
+        height: 30px;
+        left: -8px;
+        top: -8px;
+        border: 15px solid #d29af7;
+    }
+    75% {
+        width: 30px;
+        height: 30px;
+        left: -8px;
+        top: -8px;
+        border: 4px solid #d29af7;
+    }
+    95% {
+        width: 30px;
+        height: 30px;
+        left: -8px;
+        top: -8px;
+        border: 2px solid #d29af7;
+    }
+    100% {
+        width: 30px;
+        height: 30px;
+        left: -8px;
+        top: -8px;
+        border: 0 solid #d29af7;
+    }
+}
+
+@keyframes heart_circle_suba {
+    15% {
+        width: 2px;
+        height: 2px;
+        left: 6px;
+        top: 6px;
+        box-shadow: -12px 0 0 #bad5ed,
+                    12px 0 0 #bce5d1,
+                    0 -12px 0 #bfd2f1,
+                    0 12px 0 #bed7e2,
+                    -8.5px -8.5px 0 #bee4d1,
+                    -8.5px 8.5px 0 #bdd7cc,
+                    8.5px -8.5px 0 #c3dae5,
+                    8.5px 8.5px 0 #b7cdf2;
+
+    }
+    30% {
+        width: 2px;
+        height: 2px;
+        left: 6px;
+        top: 6px;
+        box-shadow: -12px 0 0 #bad5ed,
+                    12px 0 0 #bce5d1,
+                    0 -12px 0 #bfd2f1,
+                    0 12px 0 #bed7e2,
+                    -8.5px -8.5px 0 #bee4d1,
+                    -8.5px 8.5px 0 #bdd7cc,
+                    8.5px -8.5px 0 #c3dae5,
+                    8.5px 8.5px 0 #b7cdf2;
+
+    }
+    100% {
+        width: 0px;
+        height: 0px;
+        left: 7px;
+        top: 7px;
+        box-shadow: -12px 0 0 #c495c9,
+                    12px 0 0 #c3d8b0,
+                    0 -12px 0 #7b9fc8,
+                    0 12px 0 #dac47b,
+                    -8.5px -8.5px 0 #a6c2c5,
+                    -8.5px 8.5px 0 #c3d8b0,
+                    8.5px -8.5px 0 #7b9fc8,
+                    8.5px 8.5px 0 #9c7fac;
+    }
+}
+
+@keyframes heart_circle_subb {
+    15% {
+        width: 2px;
+        height: 2px;
+        left: 6px;
+        top: 6px;
+        box-shadow: -12px 0 0 #bad5ed,
+                    12px 0 0 #bce5d1,
+                    0 -12px 0 #bfd2f1,
+                    0 12px 0 #bed7e2,
+                    -8.5px -8.5px 0 #bee4d1,
+                    -8.5px 8.5px 0 #bdd7cc,
+                    8.5px -8.5px 0 #c3dae5,
+                    8.5px 8.5px 0 #b7cdf2;
+
+    }
+    20% {
+        width: 4px;
+        height: 4px;
+        left: 5px;
+        top: 5px;
+        box-shadow: -14px 0 0 #c495c9,
+                    14px 0 0 #c3d8b0,
+                    0 -14px 0 #7b9fc8,
+                    0 14px 0 #dac47b,
+                    -10px -10px 0 #a6c2c5,
+                    -10px 10px 0 #c3d8b0,
+                    10px -10px 0 #7b9fc8,
+                    10px 10px 0 #9c7fac;
+    }
+    30% {
+        width: 2px;
+        height: 2px;
+        left: 6px;
+        top: 6px;
+        box-shadow: -14px 0 0 #c495c9,
+                    14px 0 0 #c3d8b0,
+                    0 -14px 0 #7b9fc8,
+                    0 14px 0 #dac47b,
+                    -10px -10px 0 #a6c2c5,
+                    -10px 10px 0 #c3d8b0,
+                    10px -10px 0 #7b9fc8,
+                    10px 10px 0 #9c7fac;
+    }
+    100% {
+        width: 0px;
+        height: 0px;
+        left: 7px;
+        top: 7px;
+        box-shadow: -16px 0 0 #c495c9,
+                    16px 0 0 #c3d8b0,
+                    0 -16px 0 #7b9fc8,
+                    0 16px 0 #dac47b,
+                    -11px -11px 0 #a6c2c5,
+                    -11px 11px 0 #c3d8b0,
+                    11px -11px 0 #7b9fc8,
+                    11px 11px 0 #9c7fac;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+}
+
+body {
+    background: #f5f5f5;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif, 'Microsoft YaHei';
+    color: #483a3a
+}
+
+a {
+    text-decoration: none;
+    color: #483a3a
+}
+
+header {
+    height: 110px;
+    background: #f3ca3d;
+}
+
+header div.inner {
+    height: 110px;
+}
+
+header div.cartoon {
+    height: 110px;
+    width: 380px;
+    position: absolute;
+    background: url(../images/bg.png) no-repeat center bottom;
+    background-size: 340px 110px;
+    top: 0;
+    right: -143px;
+}
+
+header a.logo {
+    display: inline-block;
+    height: 84px;
+    vertical-align: top;
+    margin-top: 13px;
+}
+
+header a.logo img {
+    border: 0;
+}
+
+nav {
+    height: 68px;
+    background: white;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+nav li {
+    display: inline-block;
+    height: 68px;
+    line-height: 68px;
+    padding: 0 20px;
+    margin-right: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+nav li.active,
+nav li:hover {
+    background: #483a3a;
+}
+
+nav li a {
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+nav li.active a,
+nav li:hover a {
+    color: white;
+}
+
+nav button.login {
+    font-family: Arial, Helvetica, sans-serif, 'Microsoft YaHei';
+    height: 28px;
+    line-height: 28px;
+    width: 70px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+    border: 1px solid #483a3a;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    padding: 0;
+    background: white;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+nav button.login:hover {
+    background: #f3ca3d;
+    border-color: #f3ca3d;
+}
+
+div.top {
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+div.inner {
+    width: 1080px;
+    position: relative;
+    margin: 0 auto;
+}
+
+div.inner:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+main div.banner {
+    height: 413px;
+    background: #4b9afc;
+}
+
+div.video {
+    margin-bottom: 110px;
+}
+
+div.video_list {
+    margin-top: 20px;
+}
+
+div.video_list div.head {
+    height: 70px;
+    line-height: 70px;
+}
+
+div.video_list div.head:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+div.video_list div.head h1 {
+    font-size: 28px;
+    display: inline-block;
+    margin: 0;
+    margin-right: 22px;
+    vertical-align: top;
+    font-weight: normal;
+}
+
+div.video_list div.head ul.season {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+div.video_list div.head ul.season li {
+    height: 70px;
+    line-height: 70px;
+    margin-left: 39px;
+    display: inline-block;
+}
+
+div.video_list div.head ul.season li a {
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_list div.head ul.season li.active a,
+div.video_list div.head ul.season li a:hover {
+    color: #e2b20e;
+}
+
+div.video_list ul.video {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    margin-right: -20px;
+    margin-bottom: -20px;
+}
+
+div.video_list ul.video li {
+    display: inline-block;
+    height: 247px;
+    width: 255px;
+    margin-right: 20px;
+    font-size: 16px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+    transition: all 0.5s;
+    transition-delay: 0.25s;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+div.video_list ul.video li:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+div.video_list div.thumbnail {
+    display: block;
+    height: 158px;
+    width: 255px;
+    position: relative;
+    overflow: hidden;
+}
+
+div.video_list li.new div.thumbnail:after {
+    content: "最新";
+    display: block;
+    font-size: 12px;
+    background: #f3ca3d;
+    width: 70px;
+    height: 48px;
+    padding-top: 28px;
+    transform: rotate(-45deg);
+    transform-origin: 0 0;
+    text-align: center;
+    position: absolute;
+    box-sizing: border-box;
+    top: 15px;
+    left: -35px;
+}
+
+div.video_list div.thumbnail video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+    background: black;
+    display: none;
+    margin-left: -13px;
+}
+
+div.video_list li:hover div.thumbnail video {
+    display: block;
+    opacity: 1;
+    animation: video_thumbnail 0.6s linear 0s 1;
+}
+
+div.video_list div.thumbnail img {
+    display: block;
+}
+
+div.video_list div.live {
+    width: 26px;
+    height: 26px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 6px solid transparent;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_list ul.video li:hover div.live {
+    opacity: 1;
+}
+
+div.video_list div.live:before {
+    content: "";
+    display: block;
+    float: left;
+    width: 2px;
+    height: 14px;
+    background: white;
+    box-shadow: 4px -7px 0 white;
+    position: relative;
+    top: 7px;
+    animation: live_left 0.5s linear infinite;
+}
+
+div.video_list div.live:after {
+    content: "";
+    display: block;
+    margin-left: 8px;
+    width: 2px;
+    height: 14px;
+    background: white;
+    box-shadow: 4px 4px 0 white;
+    position: relative;
+    top: 4px;
+    animation: live_right 0.5s linear infinite;
+}
+
+div.video_list div.play {
+    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    background: rgba(0, 0, 0, 0.35);
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+div.video_list div.play div.icon {
+    height: 20px;
+    width: 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    position: absolute;
+    top: 7px;
+    left: 20px;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_list ul.video li:hover div.play div.icon {
+    border-color: #f3ca3d;
+    background: #f3ca3d;
+}
+
+div.video_list div.play div.icon:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 8px white solid;
+    border-top: 4px transparent solid;
+    border-bottom: 4px transparent solid;
+    display: block;
+    left: 11px;
+    top: 5px;
+    position: absolute;
+}
+
+div.video_list div.play div.duration {
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+div.video_list div.meta {
+    height: 89px;
+    background: white;
+    padding: 17px 20px;
+}
+
+div.video_list div.meta div.info {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #b0b0b0;
+}
+
+div.video_list div.meta span.publish_date {
+    float: right;
+}
+
+div.video_list div.head a.more {
+    float: right;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_list div.head a.more:hover {
+    color: #e2b20e;
+}
+
+h1.video_title {
+    height: 20px;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 40px 0 30px 0;
+}
+
+h1.video_title span.brand {
+    margin-right: 34px;
+}
+
+h1.video_title span.season {
+    margin-right: 20px;
+}
+
+div.video_area:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+div.video_area div.player {
+    float: left;
+    height: 540px;
+    width: 820px;
+    background: black;
+}
+
+div.video_area div.season_list {
+    height: 540px;
+    width: 260px;
+    margin-left: 820px;
+    background: white;
+    overflow-y: auto;
+}
+
+div.video_area div.season_list ul {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+div.video_area div.season_list li {
+    margin-bottom: 10px;
+    height: 72px;
+}
+
+div.video_area div.season_list li:last-child {
+    margin: 0;
+}
+
+div.video_area div.season_list li:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+div.video_area div.season_list div.thumbnail {
+    position: relative;
+    width: 116px;
+    height: 72px;
+    background: #ccc;
+    float: left;
+}
+
+div.video_area div.season_list li div.thumbnail:after {
+    content: "";
+    width: 116px;
+    height: 72px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #f3ca3d;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_area div.season_list li:hover div.thumbnail:after,
+div.video_area div.season_list li.live div.thumbnail:after {
+    opacity: 1;
+}
+
+div.video_area div.season_list div.thumbnail div.duration {
+    position: absolute;
+    width: 125%;
+    padding: 0 12.5px;
+    height: 17.5px;
+    line-height: 17.5px;
+    font-size: 12.5px;
+    background: rgba(0, 0, 0, 0.35);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.35) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(50%, rgba(0,0,0,0.35)), color-stop(100%, rgba(0,0,0,0.35)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.35) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.35) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.35) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.35) 100%);
+    color: white;
+    text-align: right;
+    bottom: 0;
+    left: 0;
+    transform-origin: bottom left;
+    transform: scale(0.8);
+}
+
+div.video_area div.season_list div.meta {
+    position: relative;
+    padding: 10px 10px 10px 126px;
+    height: 72px;
+    font-size: 12px;
+}
+
+div.video_area div.season_list div.meta div.title {
+    color: #333;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_area div.season_list li:hover div.meta div.title,
+div.video_area div.season_list li.live div.meta div.title {
+    color: #f3ca3d;
+}
+
+div.video_area div.season_list div.meta div.live {
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_area div.season_list div.meta div.live:before {
+    content: "";
+    display: block;
+    float: left;
+    width: 2px;
+    height: 14px;
+    background: #b0b0b0;
+    box-shadow: 4px -7px 0 #b0b0b0;
+    position: relative;
+    top: 7px;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_area div.season_list li:hover div.meta div.live:before,
+div.video_area div.season_list li.live div.meta div.live:before {
+    background: #f3ca3d;
+    box-shadow: 4px -7px 0 #f3ca3d;
+    animation: live_yellow_left 0.5s linear 0.45s infinite;
+}
+
+div.video_area div.season_list div.meta div.live:after {
+    content: "";
+    display: block;
+    margin-left: 8px;
+    width: 2px;
+    height: 14px;
+    background: #b0b0b0;
+    box-shadow: 4px 4px 0 #b0b0b0;
+    position: relative;
+    top: 4px;
+    transition: all 0.3s;
+    transition-delay: 0.15s;
+}
+
+div.video_area div.season_list li:hover div.meta div.live:after,
+div.video_area div.season_list li.live div.meta div.live:after {
+    background: #f3ca3d;
+    box-shadow: 4px 4px 0 #f3ca3d;
+    animation: live_yellow_right 0.5s linear 0.45s infinite;
+}
+
+div.video_area div.season_list div.meta div.play {
+    position: absolute;
+    bottom: 10px;
+    color: #6e6e6e;
+}
+
+div.video_meta {
+    height: 68px;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    background: white;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    padding: 26px;
+    color: #b0b0b0;
+}
+
+div.video_meta:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+div.video_meta ul.info {
+    list-style: none;
+    font-size: 0;
+    height: 14px;
+    line-height: 14px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+div.video_meta ul.info li {
+    font-size: 14px;
+    margin-right: 40px;
+    padding-left: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+div.video_meta ul.info li:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+    background-size: contain;
+}
+
+div.video_meta ul.info li.play:before {
+    background-image: url(../images/play.png);
+}
+
+div.video_meta ul.info li.comment:before {
+    background-image: url(../images/comment.png);
+}
+
+div.video_meta ul.info li.good:before {
+    background-image: url(../images/good.png);
+}
+
+div.video_meta ul.info li.like {
+    padding-left: 0;
+}
+
+div.video_meta ul.info li.like:before {
+    display: none;
+}
+
+div.video_meta ul.info li.like label {
+    padding-left: 24px;
+    cursor: pointer;
+}
+
+div.video_meta ul.info li.like div.heart {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+}
+
+div.video_meta ul.info li.like div.heart input[type="checkbox"] {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    opacity: 0;
+    margin: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+
+div.video_meta ul.info li.like div.heart div.icon {
+    background-image: url(../images/like.png);
+    background-size: contain;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+}
+
+div.video_meta ul.info li.like:hover div.heart div.icon {
+    background-image: url(../images/like_color.png);
+}
+
+div.video_meta ul.info li.like div.heart input[type="checkbox"]:checked + div.icon {
+    background-image: url(../images/like_color.png);
+    animation: heart_icon 0.4s linear 0s 1;
+    transform-origin: 50% 50%;
+}
+
+div.video_meta ul.info li.like div.heart div.circles {
+    position: absolute;
+    z-index: 5;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+}
+
+div.video_meta ul.info li.like div.heart div.circles:before,
+div.video_meta ul.info li.like div.heart div.circles:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+}
+
+div.video_meta ul.info li.like div.heart div.circles:after {
+    transform: rotate(105deg);
+}
+
+div.video_meta ul.info li.like div.heart input[type="checkbox"]:checked + div.icon + div.circles {
+    animation: heart_circle_main 0.2s linear 0s 1;
+}
+
+div.video_meta ul.info li.like div.heart input[type="checkbox"]:checked + div.icon + div.circles:before {
+    animation: heart_circle_suba 0.4s linear 0s 1;
+}
+
+div.video_meta ul.info li.like div.heart input[type="checkbox"]:checked + div.icon + div.circles:after {
+    animation: heart_circle_subb 0.5s linear 0s 1;
+}
+
+div.video_meta div.share {
+    float: right;
+    height: 14px;
+    line-height: 14px;
+    font-size: 14px;
+}
+
+div.video_meta div.share ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    display: inline-block;
+    vertical-align: bottom;
+    height: 14px;
+}
+
+div.video_meta div.share ul li {
+    margin-left: 18px;
+    position: relative;
+    display: inline-block;
+    width: 26px;
+}
+
+div.video_meta div.share ul li:before {
+    content: "";
+    width: 26px;
+    height: 26px;
+    margin-top: -6px;
+    display: block;
+    background-size: contain;
+}
+
+div.video_meta div.share ul li.weixin:before {
+    background-image: url(../images/weixin.png);
+}
+
+div.video_meta div.share ul li.qq:before {
+    background-image: url(../images/qq.png);
+}
+
+div.video_meta div.share ul li.weibo:before {
+    background-image: url(../images/weibo.png);
+}
+
+footer {
+    height: 288px;
+    background: #483a3a;
+}

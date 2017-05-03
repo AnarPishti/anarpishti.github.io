@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head lang="zh-cn">
+<meta charset="utf-8">
+<link rel="stylesheet" href="style/style.css">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.3.2/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/2.5.3/vue-router.min.js"></script>
+<title>石榴熟了</title>
+</head>
+<body>
+<div id="anar_app">
+<div class="top">
+<header>
+    <div class="inner">
+        <a href="#" class="logo">
+            <img src="images/logo.png" alt="logo" width="110" height="84">
+        </a>
+        <div class="cartoon"></div>
+    </div>
+</header>
+<nav>
+    <div class="inner">
+        <ul>
+            <li class="active"><a href="#">视频</a></li>
+            <li><a href="#">文章</a></li>
+            <li><a href="#">我们</a></li>
+        </ul>
+        <button class="login">登录</button>
+    </div>
+</nav>
+</div>
+<main>
+    <div class="inner">
+        <div class="banner">
+
+        </div>
+        <div class="video">
+            <div class="video_list" v-for="(brand, brandIndex) in recentVideos.data">
+                <div class="head">
+                    <h1>{{ brands[brandIndex].name }}</h1>
+                    <ul class="season">
+                        <li v-bind:class="{active: seasonIndex === brands[brandIndex].selected}" v-for="(season, seasonIndex) in brand"><a href="javascript:void(0)" v-on:click="selectSeason(brandIndex, seasonIndex)">第{{ transformNumberUnderHundred(season[0].season) }}季</a></li>
+                    </ul>
+                    <a href="more.html" class="more">更多</a>
+                </div>
+                <ul class="video" v-for="(season, seasonIndex) in brand" v-show="seasonIndex === brands[brandIndex].selected">
+                    <li v-bind:class="{new: isNewVideo(video.publishTime)}" v-for="video in season">
+                        <a href="play.html">
+                            <div class="thumbnail">
+                                <video width="280" height="158" autoplay loop muted v-if="video.thumbnailVideo">
+                                    <source v-bind:src="video.thumbnailVideo" type="video/mp4">
+                                </video>
+                                <img v-bind:src="video.thumbnail" alt="thumbnail" width="255" height="158">
+                                <div class="live"></div>
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <div class="duration">14:25</div>
+                                </div>
+                            </div>
+                            <div class="meta">
+                                <div class="title">{{ video.title }}</div>
+                                <div class="info">
+                                    <span class="publish_date">2017.04.27</span>
+                                    <span class="count">100万次播放</span>
+                                </div>
+                            </div>
+                            
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+<footer></footer>
+<script src="js/app.js"></script>
+</body>
+</html>
