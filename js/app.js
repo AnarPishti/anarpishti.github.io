@@ -19,7 +19,8 @@ var app = new Vue({
     methods: {
         getRecentVideos: getRecentVideos,
         transformNumberUnderHundred: transformNumberUnderHundred,
-        selectSeason: selectSeason
+        selectSeason: selectSeason,
+        toDateString: toDateString
     },
     created: getRecentVideos
 });
@@ -66,4 +67,14 @@ function selectSeason(brandIndex, seasonIndex) {
 
 function isNewVideo(time) {
     return new Date().getTime() / 1000 - time < 7 * 24 * 3600;
+}
+
+function toDateString(timespan) {
+    var publishTime = new Date(timespan * 1000);
+    var year = publishTime.getFullYear();
+    var month = publishTime.getMonth() + 1;
+    var day = publishTime.getDate();
+    month = month < 10 ? ('0' + month) : month;
+    day = day < 10 ? ('0' + day) : day;
+    return year + '.' + month + '.' + day;
 }
