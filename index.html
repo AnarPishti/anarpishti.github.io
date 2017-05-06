@@ -22,7 +22,7 @@
 <nav>
     <div class="inner">
         <ul>
-            <li class="active"><a href="#">视频</a></li>
+            <li v-bind:class="{active: path.data==='home'}"><a href="#">视频</a></li>
             <li><a href="#">文章</a></li>
             <li><a href="#">我们</a></li>
         </ul>
@@ -32,19 +32,19 @@
 </div>
 <main>
     <div class="inner">
-        <div class="banner">
+        <div class="banner" v-if="path.data==='home'">
 
         </div>
         <div class="video">
-            <div class="video_list" v-for="(brand, brandIndex) in recentVideos.data">
+            <div class="video_list" v-for="(brand, brandIndex) in videoList.data">
                 <div class="head">
-                    <h1>{{ brands[brandIndex].name }}</h1>
+                    <h1>{{ brands.data[brandIndex].name }}</h1>
                     <ul class="season">
-                        <li v-bind:class="{active: seasonIndex === brands[brandIndex].selected}" v-for="(season, seasonIndex) in brand"><a href="javascript:void(0)" v-on:click="selectSeason(brandIndex, seasonIndex)">第{{ transformNumberUnderHundred(season[0].season) }}季</a></li>
+                        <li v-bind:class="{active: seasonIndex === brands.data[brandIndex].selected}" v-for="(season, seasonIndex) in brand"><a href="javascript:void(0)" v-on:click="selectSeason(brandIndex, seasonIndex)">第{{ transformNumberUnderHundred(season[0].season) }}季</a></li>
                     </ul>
-                    <a href="more.html" class="more">更多</a>
+                    <a v-bind:href="'#/video/' + brands.data[brandIndex].slag" class="more">更多</a>
                 </div>
-                <ul class="video" v-for="(season, seasonIndex) in brand" v-show="seasonIndex === brands[brandIndex].selected">
+                <ul class="video" v-for="(season, seasonIndex) in brand" v-show="seasonIndex === brands.data[brandIndex].selected">
                     <li v-bind:class="{new: isNewVideo(video.publishTime)}" v-for="video in season">
                         <a href="play.html">
                             <div class="thumbnail">
