@@ -252,8 +252,6 @@ nav ul {
 nav li {
     display: inline-block;
     height: 68px;
-    line-height: 68px;
-    padding: 0 20px;
     margin-right: 50px;
     cursor: pointer;
     transition: all 0.3s;
@@ -266,6 +264,10 @@ nav li:hover {
 }
 
 nav li a {
+    display: block;
+    height: 68px;
+    line-height: 68px;
+    padding: 0 20px;
     transition: all 0.3s;
     transition-delay: 0.15s;
 }
@@ -407,6 +409,7 @@ div.video_list div.thumbnail {
     width: 255px;
     position: relative;
     overflow: hidden;
+    background: #ccc;
 }
 
 div.video_list li.new div.thumbnail:after {

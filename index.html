@@ -22,16 +22,16 @@
 <nav>
     <div class="inner">
         <ul>
-            <li v-bind:class="{active: path.data==='home'}"><a href="#">视频</a></li>
-            <li><a href="#">文章</a></li>
-            <li><a href="#">我们</a></li>
+            <li v-bind:class="{active: path.data==='home'}"><a href="#/">视频</a></li>
+            <li v-bind:class="{active: path.data==='post'}"><a href="#/post">文章</a></li>
+            <li v-bind:class="{active: path.data==='about'}"><a href="#/about">我们</a></li>
         </ul>
         <button class="login">登录</button>
     </div>
 </nav>
 </div>
-<main>
-    <div class="inner">
+<main v-if="state.data==='ready'">
+    <div class="inner" v-if="path.data==='home' || /^\/video/.test(path.data)">
         <div class="banner" v-if="path.data==='home'">
 
         </div>
@@ -42,11 +42,11 @@
                     <ul class="season">
                         <li v-bind:class="{active: seasonIndex === brands.data[brandIndex].selected}" v-for="(season, seasonIndex) in brand"><a href="javascript:void(0)" v-on:click="selectSeason(brandIndex, seasonIndex)">第{{ transformNumberUnderHundred(season[0].season) }}季</a></li>
                     </ul>
-                    <a v-bind:href="'#/video/' + brands.data[brandIndex].slag" class="more">更多</a>
+                    <a v-bind:href="'#/video/' + brands.data[brandIndex].slug" class="more">更多</a>
                 </div>
                 <ul class="video" v-for="(season, seasonIndex) in brand" v-show="seasonIndex === brands.data[brandIndex].selected">
                     <li v-bind:class="{new: isNewVideo(video.publishTime)}" v-for="video in season">
-                        <a href="play.html">
+                        <a v-bind:href="'#/play/' + video.PartitionKey + '/' + video.season + '-' + video.index">
                             <div class="thumbnail">
                                 <video width="280" height="158" autoplay loop muted v-if="video.thumbnailVideo">
                                     <source v-bind:src="video.thumbnailVideo" type="video/mp4">
@@ -72,9 +72,56 @@
             </div>
         </div>
     </div>
+    <div class="inner" v-if="/^\/play/.test(path.data)">
+        <h1 class="video_title"><span class="brand">【{{ getBrandName(singleVideo.data.PartitionKey) }}】</span><span class="season">第{{ transformNumberUnderHundred(singleVideo.data.season) }}季</span>{{ singleVideo.data.title }}</h1>
+        <div class="video_area">
+            <div class="player">
+                <iframe height=540 width=820 frameborder=0 allowfullscreen v-bind:src="'https://player.youku.com/embed/' + singleVideo.data.id"></iframe>
+            </div>
+            <div class="season_list">
+                <ul>
+                    <li v-bind:class="{live: item.index === singleVideo.data.index}" v-for="item in singleVideoList.data">
+                        <a v-bind:href="'#/play/' + item.PartitionKey + '/' + item.season + '-' + item.index">
+                            <div class="thumbnail">
+                                <img v-bind:src="item.thumbnail" alt="thumbnail" width="116" height="72">
+                                <div class="duration">14:25</div>
+                            </div>
+                            <div class="meta">
+                                <div class="title">{{ item.title }}</div>
+                                <div class="live"></div>
+                                <div class="play">100万次播放</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="video_meta">
+            <ul class="info">
+                <li class="play">100万次播放</li>
+                <li class="comment">10万条</li>
+                <li class="like">
+                    <div class="heart">
+                        <input type="checkbox" id="like_check">
+                        <div class="icon"></div>
+                        <div class="circles"></div>
+                    </div>
+                    <label for="like_check">2589756</label>
+                </li>
+            </ul>
+            <div class="share">分享
+                <ul>
+                    <li class="weixin">微信</li>
+                    <li class="qq">QQ</li>
+                    <li class="weibo">微博</li>
+                </ul>
+            </div>
+        </div>
+        <div class="comment"></div>
+    </div>
 </main>
+<footer v-show="state.data==='ready'"></footer>
 </div>
-<footer></footer>
 <script src="js/app.js"></script>
 </body>
 </html>

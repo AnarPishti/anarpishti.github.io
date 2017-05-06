@@ -2,11 +2,11 @@ var API_HOST = 'anarpishtifunc.azurewebsites.net';
 
 var BRANDS = [{
     name: '石榴熟了',
-    slag: 'anar',
+    slug: 'anar',
     selected: 0
 }, {
     name: '奇葩古丽',
-    slag: 'qipar',
+    slug: 'qipar',
     selected: 0
 }];
 
@@ -21,6 +21,18 @@ var app = new Vue({
         },
         path: {
             data: 'home'
+        },
+        cached: {
+            data: {}
+        },
+        singleVideo: {
+            data: {}
+        },
+        singleVideoList: {
+            data: []
+        },
+        state: {
+            data: 'busy'
         }
     },
     methods: {
@@ -28,10 +40,15 @@ var app = new Vue({
         transformNumberUnderHundred: transformNumberUnderHundred,
         selectSeason: selectSeason,
         toDateString: toDateString,
-        getBrandVideos: getBrandVideos
+        getBrandVideos: getBrandVideos,
+        getBrandName: getBrandName,
+        getVideo: getVideo
     },
     created: function() {
-        window.onhashchange = handlePath;
+        window.onhashchange = function() {
+            app.$set(app.state, 'data', 'busy');
+            handlePath();
+        };
         setTimeout(handlePath, 0);
     }
 });
@@ -43,6 +60,11 @@ function handlePath() {
         path: '/video/(.*?)',
         do: function(matches) {
             app.getBrandVideos(matches[1]);
+        }
+    }, {
+        path: '/play/(.*?)/(.*?)-(.*?)',
+        do: function(matches) {
+            app.getVideo(matches[1], Number(matches[2]), Number(matches[3]));
         }
     }];
 
@@ -67,6 +89,15 @@ function handlePath() {
 }
 
 function getRecentVideos() {
+    if (app.cached.data.recentVideos) {
+        BRANDS.forEach(function(brand) {
+            brand.selected = 0;
+        });
+        app.$set(app.brands, 'data', BRANDS);
+        app.$set(app.videoList, 'data', app.cached.data.recentVideos);
+        app.$set(app.state, 'data', 'ready');
+        return;
+    }
     var url = 'https://' + API_HOST + '/api/video/get';
     jQuery.get(url).done(function(res) {
         var videoList = [];
@@ -76,11 +107,8 @@ function getRecentVideos() {
             });
             videoList.push(brandVideos);
         });
-        BRANDS.forEach(function(brand) {
-            brand.selected = 0;
-        });
-        app.$set(app.brands, 'data', BRANDS);
-        app.$set(app.videoList, 'data', videoList);
+        app.cached.data.recentVideos = videoList;
+        getRecentVideos();
     }).fail(function(error) {
 
     });
@@ -125,6 +153,17 @@ function toDateString(timespan) {
 }
 
 function getBrandVideos(brand) {
+    if (app.cached.data.brandVideos && app.cached.data.brandVideos[brand]) {
+        BRANDS.forEach(function(b) {
+            if (b.slug === brand) {
+                b.selected = 0;
+                app.$set(app.brands, 'data', [b]);
+            }
+        });
+        app.$set(app.videoList, 'data', [app.cached.data.brandVideos[brand]]);
+        app.$set(app.state, 'data', 'ready');
+        return
+    }
     var url = 'https://' + API_HOST + '/api/video/get?brand=' + brand;
     jQuery.get(url).done(function(res) {
         var videoList = [];
@@ -132,14 +171,51 @@ function getBrandVideos(brand) {
             return b[0].season - a[0].season;
         });
         videoList.push(res.data);
-        BRANDS.forEach(function(b) {
-            if (b.slag === brand) {
-                b.selected = 0;
-                app.$set(app.brands, 'data', [b]);
-            }
-        });
-        app.$set(app.videoList, 'data', videoList);
+        app.cached.data.brandVideos = app.cached.data.brandVideos || {};
+        app.cached.data.brandVideos[brand] = videoList[0];
+        getBrandVideos(brand)
     }).fail(function(error) {
 
     });
+}
+
+function getVideo(brand, season, index) {
+    if (app.cached.data.brandVideos && app.cached.data.brandVideos[brand]) {
+        app.cached.data.brandVideos[brand].forEach(function(seasonVideos) {
+            if (seasonVideos[0].season === season) {
+                seasonVideos.forEach(function(item) {
+                    if (item.season === season && item.index === index) {
+                        app.$set(app.singleVideo, 'data', item);
+                    }
+                });
+                app.$set(app.singleVideoList, 'data', seasonVideos);
+                app.$set(app.state, 'data', 'ready');
+            }
+            
+        });
+        return;
+    }
+
+    var url = 'https://' + API_HOST + '/api/video/get?brand=' + brand;
+    jQuery.get(url).done(function(res) {
+        var videoList = [];
+        res.data.sort(function(a, b){
+            return b[0].season - a[0].season;
+        });
+        videoList = res.data;
+        app.cached.data.brandVideos = app.cached.data.brandVideos || {};
+        app.cached.data.brandVideos[brand] = videoList;
+        getVideo(brand, season, index);
+    }).fail(function(error) {
+
+    });
+}
+
+function getBrandName(slug) {
+    for(var brandIndex in BRANDS) {
+        if (BRANDS[brandIndex].slug === slug) {
+            return BRANDS[brandIndex].name;
+        }
+    }
+    return null;
 }
